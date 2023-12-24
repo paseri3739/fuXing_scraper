@@ -19,7 +19,7 @@ export async function initializeBrowser(): Promise<[Browser, Page, BrowserContex
         // ストレージ状態が存在する場合、それを使用して新しいコンテキストを作成
         context = await browser.newContext({ storageState: statePath });
         page = await context.newPage();
-        page.goto(homePage);
+        await page.goto(homePage);
     } else {
         // ストレージ状態が存在しない場合、新しいコンテキストを作成してログイン処理を実行
         context = await browser.newContext();
