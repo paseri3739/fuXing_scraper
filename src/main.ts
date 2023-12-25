@@ -1,12 +1,12 @@
 import { initializeBrowser } from "./login";
 import { saveImgRequest } from "./observer";
+import { search } from "./search";
 
 async function main(): Promise<void> {
     try {
         const [browser, page, context] = await initializeBrowser();
-        //const query: string = "#FursuitFriday";
-        //await search(query, page);
-        page.goto("https://twitter.com/foooooxes/media");
+        const query: string = "#FursuitFriday";
+        await search(query, page);
         await saveImgRequest(page);
     } catch (error) {
         console.error("an error occured");
