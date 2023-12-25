@@ -26,6 +26,7 @@ $ node dist/main.js
 to collect URL.json, then run
 ```
 $ node modify_url.js
-$ node download_from_json.js
+$ node download_from_json.js UpdatedURL.json
 ```
+modify_url.js modifies all URL's &name= parameters to "large". download_from_json.js downloads all images specified by json file.
 This process is independent from playwright, so your account might not be banned. I take this method for some legal reason.
