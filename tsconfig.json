@@ -3,7 +3,7 @@
       "strict": true,
       "forceConsistentCasingInFileNames": true,
       "module": "CommonJS",
-      "target": "ES2015",
+      "target": "ES2017",
       "sourceMap": true,
       "esModuleInterop": true,
       "rootDir": "./src",
