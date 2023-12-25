@@ -7,3 +7,4 @@ dist/
 .env
 loginAuth.json
 *.jpg
+.DS_Store
