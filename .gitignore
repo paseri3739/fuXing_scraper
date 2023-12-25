@@ -8,3 +8,4 @@ dist/
 loginAuth.json
 *.jpg
 .DS_Store
+URL.json
