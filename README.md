@@ -21,7 +21,7 @@ I won't implement automatic scrolling because Twitter bans automation without it
 You can use your URL list for some process, which can do "without login".
 
 ```
-$ node dist/main.js
+$ node dist/main.js keyword-to-search
 ```
 to collect URL.json, then run
 ```

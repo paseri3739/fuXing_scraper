@@ -5,7 +5,8 @@ import { search } from "./search";
 (async function main(): Promise<void> {
     try {
         const [browser, page, context] = await initializeBrowser();
-        const query: string = "#FursuitFriday";
+        // query from args
+        const query: string = process.argv[2];
         await search(query, page);
         await saveImgRequest(page);
     } catch (error) {
