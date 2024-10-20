@@ -5,8 +5,8 @@ import { Browser, BrowserContext, Page, chromium } from "playwright";
 
 const USER_NAME: string = process.env.USER_NAME || "";
 const PASSWORD: string = process.env.PASSWORD || "";
-const loginPage: string = "https://twitter.com/i/flow/login";
-const homePage: string = "https://twitter.com/home";
+const loginPage: string = "https://x.com/i/flow/login";
+const homePage: string = "https://x.com/home";
 
 export async function initializeBrowser(): Promise<[Browser, Page, BrowserContext]> {
     const statePath = "./loginAuth.json";
