@@ -12,7 +12,8 @@ export async function queryEntry(query: string): Promise<void> {
         await saveImgRequestToJsonFile(page);
         // event listener for exit
         process.stdin.on("data", async (data) => {
-            if (data.toString() === "exit\n") {
+            if (data.toString().trim() === "") {
+                // Enter key only (empty line)
                 await browser.close();
                 process.exit(0);
             }
