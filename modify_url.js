@@ -1,8 +1,5 @@
-const { error, log } = require("console");
 const fs = require("fs");
-const { basename } = require("path");
 const path = require("path");
-const { argv } = require("process");
 
 // JSONファイルを読み込む関数
 function readJsonFile(filePath) {
@@ -36,8 +33,6 @@ function replaceNameParam(urls) {
         return url.replace(/(&name=)[^&]*/, "$1large");
     });
 }
-
-const path = require("path");
 
 // メイン処理
 async function main() {
