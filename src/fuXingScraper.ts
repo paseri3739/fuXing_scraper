@@ -15,21 +15,24 @@ program.option("-f, --file_name <file_name>", "Specify the output file name");
 program
     .command("search <query>")
     .description("Search for images on the FuXing website")
-    .action(async (query, options) => {
+    .action(async (query) => {
+        const options = program.opts();
         await entry(query, queryEntry, options.file_name);
     });
 
 program
     .command("url <url>")
     .description("direct access to specified URL")
-    .action(async (url, options) => {
+    .action(async (url) => {
+        const options = program.opts();
         await entry(url, urlEntry, options.file_name);
     });
 
 program
     .command("user <user>")
     .description("direct access to specified user")
-    .action(async (user, options) => {
+    .action(async (user) => {
+        const options = program.opts();
         await entry(user, userEntry, options.file_name);
     });
 

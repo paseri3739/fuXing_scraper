@@ -5,8 +5,12 @@ node_modules/
 /playwright/.cache/
 dist/
 .env
-loginAuth.json
 *.jpg
 .DS_Store
-URL.json
-UpdatedURL.json
+
+# すべてのJSONファイルを無視
+*.json
+
+# ただし、package.jsonとpackage-lock.jsonは例外として追跡
+!package.json
+!package-lock.json

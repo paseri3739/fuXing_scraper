@@ -45,7 +45,10 @@ async function main() {
     try {
         const jsonFilePath = process.argv[2]; // コマンドライン引数からJSONファイルのパスを取得
         const urls = require(path.resolve(jsonFilePath)); // JSONファイルを読み込む
-        const imgDir = "./img/";
+
+        // JSONファイル名から拡張子を除いたフォルダ名を取得
+        const folderName = path.basename(jsonFilePath, path.extname(jsonFilePath));
+        const imgDir = path.join("./img", folderName); // 画像保存用のディレクトリ
         ensureDir(imgDir); // ディレクトリがなければ作成
 
         for (const [index, url] of urls.entries()) {
@@ -59,4 +62,4 @@ async function main() {
     }
 }
 
-main();
+await main();
