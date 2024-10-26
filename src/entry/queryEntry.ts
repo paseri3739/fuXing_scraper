@@ -1,9 +1,9 @@
-import { initializeBrowser } from "./login";
-import { saveImgRequest } from "./observer";
-import { search } from "./search";
+import { initializeBrowser } from "../actions/login";
+import { saveImgRequest } from "../actions/observer";
+import { search } from "../actions/search";
 
 // main() 関数に `query` 引数を追加
-export async function main(query: string): Promise<void> {
+export async function queryEntry(query: string): Promise<void> {
     try {
         const [browser, page, context] = await initializeBrowser();
         // 取得した query を使用
