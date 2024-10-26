@@ -1,6 +1,7 @@
 // entry point for the CLI
 import { Command } from "commander";
 import { queryEntry } from "./entry/queryEntry";
+import { urlEntry } from "./entry/urlEntry";
 
 const program = new Command();
 
@@ -17,7 +18,7 @@ program
     .command("url <url>")
     .description("direct access to specified URL")
     .action(async (url) => {
-        await queryEntry(url);
+        await urlEntry(url);
     });
 
 program.parse(process.argv);
