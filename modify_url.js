@@ -37,18 +37,20 @@ function replaceNameParam(urls) {
     });
 }
 
+const path = require("path");
+
 // メイン処理
 async function main() {
     try {
-        // コマンドライン引数からJSONファイルのパスを取得
+        // コマンドライン引数から入力ファイルと出力ファイルのパスを取得
         const inputFilePath = process.argv[2];
+        const outputFilePath = process.argv[3] || `Updated_${path.basename(inputFilePath)}`;
+
         if (!inputFilePath) {
             console.error("エラー: JSONファイルのパスを指定してください。");
             return;
         }
 
-        // 出力ファイル名を動的に生成 (例: "Updated_<input file name>.json")
-        const outputFilePath = `Updated_${path.basename(inputFilePath)}`;
         const urls = await readJsonFile(inputFilePath); // JSONファイルを読み込む
         const updatedUrls = replaceNameParam(urls); // URLを更新
         await writeJsonFile(outputFilePath, updatedUrls); // 結果をJSONファイルに書き込む
