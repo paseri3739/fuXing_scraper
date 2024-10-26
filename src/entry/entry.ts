@@ -1,5 +1,5 @@
 import { Page } from "playwright-core";
-import { initializeBrowser } from "../actions/login";
+import { initializeBrowser } from "../actions/initializeBrowser";
 import { saveImgRequestToJsonFile } from "../actions/observer";
 import { exitByEnter } from "./exitByEnter";
 
