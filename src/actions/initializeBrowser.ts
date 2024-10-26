@@ -2,9 +2,9 @@ import * as fs from "fs";
 import { Browser, BrowserContext, chromium, Page } from "playwright-core";
 import { login } from "./login";
 
-export async function initializeBrowser(): Promise<[Browser, Page, BrowserContext]> {
+export async function initializeBrowser(headless?: boolean): Promise<[Browser, Page, BrowserContext]> {
     const statePath = "./loginAuth.json";
-    const browser: Browser = await chromium.launch({ headless: false });
+    const browser: Browser = await chromium.launch({ headless: headless || false });
 
     let context: BrowserContext;
     let page: Page;

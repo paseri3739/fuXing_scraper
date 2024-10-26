@@ -11,13 +11,15 @@ program.name("fuXingScraper").version("0.0.1").description("A scraper for the Fu
 
 // Add the optional argument for file_name
 program.option("-f, --file_name <file_name>", "Specify the output file name");
+// Add the optional argument for headless
+program.option("-h, --headless", "Run in headless mode");
 
 program
     .command("search <query>")
     .description("Search for images on the FuXing website")
     .action(async (query) => {
         const options = program.opts();
-        await entry(query, queryEntry, options.file_name);
+        await entry(query, queryEntry, options.file_name, options.headless || false);
     });
 
 program
@@ -25,7 +27,7 @@ program
     .description("direct access to specified URL")
     .action(async (url) => {
         const options = program.opts();
-        await entry(url, urlEntry, options.file_name);
+        await entry(url, urlEntry, options.file_name, options.headless || false);
     });
 
 program
@@ -33,7 +35,7 @@ program
     .description("direct access to specified user")
     .action(async (user) => {
         const options = program.opts();
-        await entry(user, userEntry, options.file_name);
+        await entry(user, userEntry, options.file_name, options.headless || false);
     });
 
 program.parse(process.argv);
