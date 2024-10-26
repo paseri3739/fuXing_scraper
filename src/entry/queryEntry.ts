@@ -5,4 +5,5 @@ import { search } from "../actions/search";
 export async function queryEntry(query: string, page: Page): Promise<void> {
     // 取得した query を使用
     await search(query, page);
+    await page.waitForLoadState("networkidle");
 }

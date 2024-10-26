@@ -26,25 +26,3 @@ export async function saveImgResponse(page: Page) {
         }
     });
 }
-
-export async function saveImgRequestToJsonFile(page: Page): Promise<void> {
-    const filePath: string = "./URL.json";
-
-    page.on("request", async (request) => {
-        const url: string = request.url();
-        if (url.includes("&name=")) {
-            // JSON ファイルの内容を読み込む
-            let urls = [];
-            if (fs.existsSync(filePath)) {
-                const data = fs.readFileSync(filePath, "utf8");
-                urls = data ? JSON.parse(data) : [];
-            }
-
-            // 新しい URL を追加
-            urls.push(url);
-
-            // ファイルに書き込む
-            fs.writeFileSync(filePath, JSON.stringify(urls, null, 4));
-        }
-    });
-}
