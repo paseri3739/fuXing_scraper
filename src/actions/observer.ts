@@ -22,12 +22,12 @@ export async function saveImgResponse(page: Page) {
             }
 
             const filePath: string = path.join(dirPath, fileName); // ファイルのフルパスを生成
-            fs.writeFileSync(filePath, buffer); // JPEGとして保存
+            fs.writeFileSync(filePath, new Uint8Array(buffer)); // JPEGとして保存
         }
     });
 }
 
-export async function saveImgRequest(page: Page): Promise<void> {
+export async function saveImgRequestToJsonFile(page: Page): Promise<void> {
     const filePath: string = "./URL.json";
 
     page.on("request", async (request) => {
