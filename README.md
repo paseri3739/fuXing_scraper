@@ -21,8 +21,16 @@ I won't implement automatic scrolling because Twitter bans automation without it
 You can use your URL list for some process, which can do "without login".
 
 ```
-$ node dist/main.js keyword-to-search
+$ node dist/main.js option <query>
 ```
+
+options:
+
+1. query: go to media tab for provided words. Hashtag available.
+2. url: directly go to provided url.
+3. user: goto media tab for provided user. (without @)
+
+
 to collect URL.json, then run
 ```
 $ node modify_url.js
