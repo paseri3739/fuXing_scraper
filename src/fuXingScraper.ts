@@ -1,5 +1,6 @@
 // entry point for the CLI
 import { Command } from "commander";
+import { entry } from "./entry/entry";
 import { queryEntry } from "./entry/queryEntry";
 import { urlEntry } from "./entry/urlEntry";
 
@@ -11,14 +12,14 @@ program
     .command("search <query>")
     .description("Search for images on the FuXing website")
     .action(async (query) => {
-        await queryEntry(query);
+        await entry(query, queryEntry);
     });
 
 program
     .command("url <url>")
     .description("direct access to specified URL")
     .action(async (url) => {
-        await urlEntry(url);
+        await entry(url, urlEntry);
     });
 
 program.parse(process.argv);
