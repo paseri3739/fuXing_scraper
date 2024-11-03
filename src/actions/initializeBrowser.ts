@@ -6,17 +6,11 @@ export async function initializeBrowser(headless?: boolean): Promise<[Browser, P
     const statePath = "./loginAuth.json";
     const browser: Browser = await chromium.launch({ headless: headless || false });
 
-    let context: BrowserContext;
-    let page: Page;
+    const context = fs.existsSync(statePath) ? await browser.newContext({ storageState: statePath }) : await browser.newContext();
 
-    if (fs.existsSync(statePath)) {
-        // ストレージ状態が存在する場合、それを使用して新しいコンテキストを作成
-        context = await browser.newContext({ storageState: statePath });
-        page = await context.newPage();
-    } else {
-        // ストレージ状態が存在しない場合、新しいコンテキストを作成してログイン処理を実行
-        context = await browser.newContext();
-        page = await context.newPage();
+    const page = await context.newPage();
+
+    if (!fs.existsSync(statePath)) {
         await login(page);
     }
 
